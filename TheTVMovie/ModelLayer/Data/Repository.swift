@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 final public class Repository: IRepository {
     private static var privateShared: Repository?
@@ -19,12 +20,9 @@ final public class Repository: IRepository {
         return uwShared
     }
     
-    private var searchRepository: ISearchRepository
-    
     private var network: INetworkLayer
     
     private init() {
-        searchRepository = SearchRepository()
         network = NetworkLayer()
     }
     
@@ -38,13 +36,15 @@ final public class Repository: IRepository {
     ///   - query: <#query description#>
     ///   - page: <#page description#>
     ///   - completion: <#completion description#>
-    public func search(query: String, page: String, completion: @escaping (String) -> Void) {
+    public func search(query: String, page: String, completion: @escaping (SearchReposne) -> Void) {
         func mainWork() {
-            network.search(query: query, page: page) { (data, error) in
-                print(data)
-                print(error)
-                
-                completion("what")
+            network.search(query: query, page: page) { (response, error) in
+                guard let response = response, error == nil else {
+                    Log.shared.log(error ?? "Error was nil")
+                    return
+                }
+                                
+                completion(response)
             }
         }
         

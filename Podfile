@@ -11,7 +11,8 @@ target 'TheTVMovie' do
   
   pod 'SteviaLayout' , '~> 4.5.0'
 
-  pod 'Alamofire', '~> 4.8.1'
+#  pod 'Alamofire', '~> 4.8.1'
+  pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'ObjectMapper', '~> 3.4'
   
   target 'TheTVMovieTests' do

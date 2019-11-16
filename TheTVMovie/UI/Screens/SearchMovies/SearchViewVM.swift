@@ -9,11 +9,19 @@
 import Foundation
 import Combine
 
+public enum SearchViewVMState {
+    case loading
+    case finishedLoading
+    case error(Error)
+}
+
 final public class SearchViewVM {
     public var searchText: String = ""
-    public var shows = Observable<[ShowDTO]>([])
+    public var shows = Observable<[Results]>([])
     
-     var repository: IRepository
+    public var state = Observable<SearchViewVMState>(.finishedLoading)
+    
+    var repository: IRepository
     
     init() {
         self.repository = Repository.shared
@@ -22,12 +30,15 @@ final public class SearchViewVM {
     /// <#Description#>
     /// - Parameter query: <#query description#>
     public func search(query: String) {
-        repository.search(query: query, page: "1") { (str) in
-            print(str)
+        state.value = .loading
+        repository.search(query: query, page: "1") { (searchResult) in
+            Log.shared.log(searchResult)
             
-            for _ in 1...10 {
-                self.shows.value.append(ShowDTO())
-            }
+            searchResult.results?.forEach({ (result) in
+                self.shows.value.append(result)
+            })
+            
+            self.state.value = .finishedLoading
         }
     }
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol IRepository {
-    func search(query: String, page: String, completion: @escaping (String) -> Void)
+    func search(query: String, page: String, completion: @escaping (SearchReposne) -> Void)
 }

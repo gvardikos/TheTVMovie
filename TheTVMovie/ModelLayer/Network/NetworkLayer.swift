@@ -7,16 +7,18 @@
 //
 
 import Alamofire
+import ObjectMapper
+import AlamofireObjectMapper
 
 enum NetworkError: Error {
     case server(message: String)
     case emptyResponse(message: String)
 }
 
-typealias NetworkResult = (Data?, Error?) -> Void
+typealias NetworkResult<T: Mappable> = (T?, Error?) -> Void
 
 protocol INetworkLayer {
-    func search(query: String, page: String, completion: @escaping NetworkResult)
+    func search(query: String, page: String, completion: @escaping NetworkResult<SearchReposne>)
 }
 
 final class NetworkLayer: INetworkLayer {
@@ -25,20 +27,21 @@ final class NetworkLayer: INetworkLayer {
     init() {
         session = SessionManager()
     }
-
-    func netRequest(_ urlRequest: URLRequestConvertible, completion: @escaping NetworkResult) {
-        session.request(urlRequest).responseJSON { (response) in
+    
+    /// Network Interceptor
+    /// - Parameters:
+    ///   - urlRequest:
+    ///   - completion: 
+    func netRequest<T: Mappable>(_ urlRequest: URLRequestConvertible, completion: @escaping NetworkResult<T>) {
+        session.request(urlRequest).responseObject(completionHandler: { (response: DataResponse<T>) in
             switch response.result {
             case .success:
-                if let jsonData = response.data {
-                    completion(jsonData, nil)
-                } else {
-                    completion(nil, NetworkError.emptyResponse(message: "Empty Response"))
-                }
+                let searchResponse = response.result.value
+                completion(searchResponse, nil)
             case .failure(let error):
                 completion(nil, NetworkError.server(message: error.localizedDescription))
             }
-        }
+        })
     }
 }
 
@@ -46,9 +49,9 @@ extension NetworkLayer {
     
     /// <#Description#>
     /// - Parameter completion: <#completion description#>
-    func search(query: String, page: String, completion: @escaping NetworkResult) {
-        netRequest(Router.search(query: query, page: page)) { (jsonData, error) in
-           completion(jsonData, error)
+    func search(query: String, page: String, completion: @escaping NetworkResult<SearchReposne>) {
+        netRequest(Router.search(query: query, page: page)) { (responseObj, error) in
+           completion(responseObj, error)
         }
     }
 }

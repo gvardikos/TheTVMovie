@@ -13,9 +13,7 @@ extension SearchVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchViewModel.shows.bind { (_) in
-            self.contentView.searchTableView.reloadData()
-        }        
+        bindings()
     }
     
     public override func loadView() {
@@ -39,6 +37,29 @@ final class SearchVC: BaseViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func bindings() {
+        searchViewModel.shows.bind { [unowned self] (_) in
+            self.contentView.searchTableView.reloadData()
+        }
+        
+        searchViewModel.state.bind { [unowned self] (state) in
+            switch state {
+            case .loading: self.contentView.showBlurLoader()
+            case .finishedLoading: self.contentView.removeBluerLoader()
+            case .error(let error): self.showError(error)
+            }
+        }
+    }
+    
+    fileprivate func showError(_ error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { [unowned self] _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 
