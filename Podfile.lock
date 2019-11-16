@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (5.0.0-rc.3)
+  - ObjectMapper (3.5.1)
+  - SwiftLint (0.37.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.3)
+  - ObjectMapper (~> 3.4)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ObjectMapper
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
+  SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
+
+PODFILE CHECKSUM: 9d0f3788a8e2b15cafcb7a614216f0dbf07b3a2d
+
+COCOAPODS: 1.8.3
