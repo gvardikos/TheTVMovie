@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Log {
+final public class Log {
     private static var privateShared: Log?
     
     public static var shared: Log {

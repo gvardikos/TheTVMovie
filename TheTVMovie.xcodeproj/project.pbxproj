@@ -17,6 +17,10 @@
 		ECAAA36D23804AA3002085E2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA36C23804AA3002085E2 /* Configuration.swift */; };
 		ECAAA36F23804BF7002085E2 /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ECAAA36E23804BF7002085E2 /* Development.xcconfig */; };
 		ECAAA37123804BFB002085E2 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ECAAA37023804BFB002085E2 /* Production.xcconfig */; };
+		ECAAA37823804E55002085E2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA37723804E55002085E2 /* NetworkLayer.swift */; };
+		ECAAA37A23804E5E002085E2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA37923804E5E002085E2 /* Router.swift */; };
+		ECAAE86123805879006859CA /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAE86023805879006859CA /* Repository.swift */; };
+		ECAAE8632380590C006859CA /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAE8622380590C006859CA /* SearchRepository.swift */; };
 		ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387723800E2F00045741 /* AppDelegate.swift */; };
 		ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387923800E2F00045741 /* SceneDelegate.swift */; };
 		ECC8388123800E3000045741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC8388023800E3000045741 /* Assets.xcassets */; };
@@ -53,6 +57,10 @@
 		ECAAA36C23804AA3002085E2 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		ECAAA36E23804BF7002085E2 /* Development.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Development.xcconfig; path = ../Development.xcconfig; sourceTree = "<group>"; };
 		ECAAA37023804BFB002085E2 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Production.xcconfig; path = ../Production.xcconfig; sourceTree = "<group>"; };
+		ECAAA37723804E55002085E2 /* NetworkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		ECAAA37923804E5E002085E2 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		ECAAE86023805879006859CA /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		ECAAE8622380590C006859CA /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
 		ECC8387423800E2F00045741 /* TheTVMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheTVMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC8387723800E2F00045741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC8387923800E2F00045741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +226,8 @@
 		ECC838A123801A1000045741 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				ECAAE86023805879006859CA /* Repository.swift */,
+				ECAAE8622380590C006859CA /* SearchRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -225,6 +235,8 @@
 		ECC838A223801A1700045741 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				ECAAA37723804E55002085E2 /* NetworkLayer.swift */,
+				ECAAA37923804E5E002085E2 /* Router.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -428,17 +440,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAAA37823804E55002085E2 /* NetworkLayer.swift in Sources */,
 				ECAAA36723803A08002085E2 /* BaseTVCell.swift in Sources */,
 				ECAAA35D23803377002085E2 /* SearchView.swift in Sources */,
 				ECAAA3612380344A002085E2 /* Log.swift in Sources */,
 				ECAAA35F2380340E002085E2 /* BaseVC.swift in Sources */,
 				ECC8389A2380173300045741 /* SearchVC.swift in Sources */,
 				ECAAA36D23804AA3002085E2 /* Configuration.swift in Sources */,
+				ECAAE86123805879006859CA /* Repository.swift in Sources */,
 				ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */,
 				ECC838A723801E2A00045741 /* ShowDetailsVC.m in Sources */,
 				ECAAA365238039E4002085E2 /* SearchTVCell.swift in Sources */,
 				ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */,
+				ECAAE8632380590C006859CA /* SearchRepository.swift in Sources */,
 				ECAAA363238035D2002085E2 /* BaseView.swift in Sources */,
+				ECAAA37A23804E5E002085E2 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ protocol SearchViewDelegate: class {
 final class SearchView: BaseView<Any> {
     private lazy var searchBar: UISearchBar = { [unowned self] in
         let searchBar = UISearchBar()
+        searchBar.delegate = self
         return searchBar
     }()
     
@@ -78,5 +79,11 @@ extension SearchView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.cellPressed(indexPath: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension SearchView: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
     }
 }
