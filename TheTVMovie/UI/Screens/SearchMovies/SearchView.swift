@@ -8,6 +8,8 @@
 
 import Stevia
 
+private let tableCellHeight: CGFloat = 160
+
 final class SearchView: BaseView<Any> {
     private lazy var dummyButton: UIButton = { [unowned self] in
         let button = UIButton(type: .system)
@@ -73,6 +75,10 @@ extension SearchView: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableCellHeight
     }
 }
 
