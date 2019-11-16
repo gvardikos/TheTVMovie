@@ -8,10 +8,17 @@
 
 import Stevia
 
-class SearchVC: UIViewController {
+/// Controller LifeCycle Extension
+extension SearchVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .red
     }
+    
+    public override func loadView() {
+        view = contentView
+    }
+}
+
+final class SearchVC: BaseViewController {
+    fileprivate let contentView = SearchView()
 }
