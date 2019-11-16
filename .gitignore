@@ -23,7 +23,7 @@ xcuserdata/
 *.moved-aside
 *.xcuserstate
 
-xcuserdata/
+*/xcuserdata/
 xcshareddata/
 
 ## Obj-C/Swift specific
