@@ -11,13 +11,6 @@ import Stevia
 private let tableCellHeight: CGFloat = 160
 
 final class SearchView: BaseView<Any> {
-    private lazy var dummyButton: UIButton = { [unowned self] in
-        let button = UIButton(type: .system)
-        button.setTitle("click me", for: .normal)
-        button.addTarget(self, action: #selector(handleClickMe), for: .touchUpInside)
-        return button
-    }()
-    
     private lazy var searchBar: UISearchBar = { [unowned self] in
         let searchBar = UISearchBar()
         return searchBar
@@ -36,17 +29,10 @@ final class SearchView: BaseView<Any> {
         setupUI()
     }
     
-    @objc fileprivate func handleClickMe() {
-        Log.shared.log(11234)
-//        let detailsVC = ShowDetailsVC()
-//        show(detailsVC, sender: self)
-    }
-    
     fileprivate func setupUI() {
         self.backgroundColor = .white
         
-        sv([searchBar, searchTableView, dummyButton])
-        dummyButton.centerInContainer()
+        sv([searchBar, searchTableView])
         
         searchBar.Top == safeAreaLayoutGuide.Top
         searchBar.Left == safeAreaLayoutGuide.Left
