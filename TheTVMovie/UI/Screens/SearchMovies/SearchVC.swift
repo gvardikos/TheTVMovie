@@ -20,5 +20,16 @@ extension SearchVC {
 }
 
 final class SearchVC: BaseViewController {
-    fileprivate let contentView = SearchView()
+    fileprivate lazy var contentView: SearchView = { [unowned self] in
+        let view = SearchView()
+        view.delegate = self
+        return view
+    }()
+}
+
+extension SearchVC: SearchViewDelegate {
+    func cellPressed(indexPath: IndexPath) {
+        let showDetailsVC = ShowDetailsVC()
+        show(showDetailsVC, sender: nil)
+    }
 }

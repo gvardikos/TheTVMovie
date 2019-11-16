@@ -10,6 +10,10 @@ import Stevia
 
 private let tableCellHeight: CGFloat = 160
 
+protocol SearchViewDelegate: class {
+    func cellPressed(indexPath: IndexPath)
+}
+
 final class SearchView: BaseView<Any> {
     private lazy var searchBar: UISearchBar = { [unowned self] in
         let searchBar = UISearchBar()
@@ -24,6 +28,8 @@ final class SearchView: BaseView<Any> {
         tableView.register(SearchTVCell.self, forCellReuseIdentifier: SearchTVCell.reuseIdentifier)
         return tableView
     }()
+    
+    weak var delegate: SearchViewDelegate?
     
     override func initialize() {
         setupUI()
@@ -69,5 +75,8 @@ extension SearchView: UITableViewDataSource {
 }
 
 extension SearchView: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.cellPressed(indexPath: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
