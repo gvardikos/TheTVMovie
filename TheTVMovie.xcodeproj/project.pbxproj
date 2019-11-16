@@ -10,7 +10,6 @@
 		C268F64C8967915CF3381FBB /* Pods_TheTVMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B417A10E462260B8D3AC44 /* Pods_TheTVMovie.framework */; };
 		ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387723800E2F00045741 /* AppDelegate.swift */; };
 		ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387923800E2F00045741 /* SceneDelegate.swift */; };
-		ECC8387C23800E2F00045741 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387B23800E2F00045741 /* ViewController.swift */; };
 		ECC8388123800E3000045741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC8388023800E3000045741 /* Assets.xcassets */; };
 		ECC8388423800E3000045741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC8388223800E3000045741 /* LaunchScreen.storyboard */; };
 		ECC8388F23800E3000045741 /* TheTVMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8388E23800E3000045741 /* TheTVMovieTests.swift */; };
@@ -38,7 +37,6 @@
 		ECC8387423800E2F00045741 /* TheTVMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheTVMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC8387723800E2F00045741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC8387923800E2F00045741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECC8387B23800E2F00045741 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECC8388023800E3000045741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECC8388323800E3000045741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECC8388523800E3000045741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,13 +109,10 @@
 		ECC8387623800E2F00045741 /* TheTVMovie */ = {
 			isa = PBXGroup;
 			children = (
-				ECC8387723800E2F00045741 /* AppDelegate.swift */,
-				ECC8387923800E2F00045741 /* SceneDelegate.swift */,
-				ECC8387B23800E2F00045741 /* ViewController.swift */,
-				ECC8388023800E3000045741 /* Assets.xcassets */,
-				ECC8388223800E3000045741 /* LaunchScreen.storyboard */,
-				ECC8388523800E3000045741 /* Info.plist */,
-				ECC838992380173300045741 /* SearchVC.swift */,
+				ECC8389B2380191A00045741 /* Application */,
+				ECC8389E2380194B00045741 /* Utils */,
+				ECC8389D2380194700045741 /* UI */,
+				ECC8389C2380193E00045741 /* ModelLayer */,
 			);
 			path = TheTVMovie;
 			sourceTree = "<group>";
@@ -129,6 +124,80 @@
 				ECC8389023800E3000045741 /* Info.plist */,
 			);
 			path = TheTVMovieTests;
+			sourceTree = "<group>";
+		};
+		ECC8389B2380191A00045741 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				ECC8387723800E2F00045741 /* AppDelegate.swift */,
+				ECC8387923800E2F00045741 /* SceneDelegate.swift */,
+				ECC8388023800E3000045741 /* Assets.xcassets */,
+				ECC8388223800E3000045741 /* LaunchScreen.storyboard */,
+				ECC8388523800E3000045741 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		ECC8389C2380193E00045741 /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				ECC838A223801A1700045741 /* Network */,
+				ECC838A123801A1000045741 /* Data */,
+			);
+			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		ECC8389D2380194700045741 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				ECC838A323801A2A00045741 /* Base */,
+				ECC838A0238019E900045741 /* Screens */,
+				ECC8389F238019D000045741 /* ReusableViews */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		ECC8389E2380194B00045741 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ECC8389F238019D000045741 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		ECC838A0238019E900045741 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ECC838992380173300045741 /* SearchVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ECC838A123801A1000045741 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		ECC838A223801A1700045741 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		ECC838A323801A2A00045741 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC8389A2380173300045741 /* SearchVC.swift in Sources */,
-				ECC8387C23800E2F00045741 /* ViewController.swift in Sources */,
 				ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */,
 				ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */,
 			);
