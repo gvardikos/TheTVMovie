@@ -9,11 +9,7 @@
 import Stevia
 
 class BaseView<VM>: UIView {
-    var viewModel: VM? {
-        didSet {
-            bind()
-        }
-    }
+    var viewModel: VM?
     
     init() {
         super.init(frame: .zero)
@@ -24,7 +20,6 @@ class BaseView<VM>: UIView {
         super.init(frame: .zero)
         self.initialize()
         self.viewModel = vm
-        bind()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,9 +29,5 @@ class BaseView<VM>: UIView {
     
     public func initialize() {
 
-    }
-    
-    public func bind() {
-        
     }
 }

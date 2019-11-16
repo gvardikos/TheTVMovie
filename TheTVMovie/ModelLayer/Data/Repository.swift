@@ -8,7 +8,7 @@
 
 import Foundation
 
-final public class Repository {
+final public class Repository: IRepository {
     private static var privateShared: Repository?
     
     public static var shared: Repository {
@@ -32,15 +32,19 @@ final public class Repository {
         privateShared = nil
     }
     
+    
     /// <#Description#>
     /// - Parameters:
     ///   - query: <#query description#>
+    ///   - page: <#page description#>
     ///   - completion: <#completion description#>
-    public func search(query: String, completion: () -> Void) {
+    public func search(query: String, page: String, completion: @escaping (String) -> Void) {
         func mainWork() {
-            network.search { (data, error) in
+            network.search(query: query, page: page) { (data, error) in
                 print(data)
                 print(error)
+                
+                completion("what")
             }
         }
         

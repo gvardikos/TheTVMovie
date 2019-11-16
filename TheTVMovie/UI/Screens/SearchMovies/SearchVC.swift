@@ -12,6 +12,10 @@ import Stevia
 extension SearchVC {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchViewModel.shows.bind { (_) in
+            self.contentView.searchTableView.reloadData()
+        }        
     }
     
     public override func loadView() {
@@ -21,10 +25,21 @@ extension SearchVC {
 
 final class SearchVC: BaseViewController {
     fileprivate lazy var contentView: SearchView = { [unowned self] in
-        let view = SearchView()
+        let view = SearchView(vm: searchViewModel, frame: .zero)
         view.delegate = self
         return view
     }()
+    
+    private var searchViewModel: SearchViewVM
+    
+    init(searchViewModel: SearchViewVM = SearchViewVM()) {
+        self.searchViewModel = searchViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension SearchVC: SearchViewDelegate {

@@ -14,14 +14,14 @@ protocol SearchViewDelegate: class {
     func cellPressed(indexPath: IndexPath)
 }
 
-final class SearchView: BaseView<Any> {
-    private lazy var searchBar: UISearchBar = { [unowned self] in
+final class SearchView: BaseView<SearchViewVM> {
+    lazy var searchBar: UISearchBar = { [unowned self] in
         let searchBar = UISearchBar()
         searchBar.delegate = self
         return searchBar
     }()
     
-    private lazy var searchTableView: UITableView = { [unowned self] in
+    lazy var searchTableView: UITableView = { [unowned self] in
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -54,7 +54,7 @@ final class SearchView: BaseView<Any> {
 
 extension SearchView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.shows.value.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +84,6 @@ extension SearchView: UITableViewDelegate {
 
 extension SearchView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        viewModel?.search(query: searchBar.text ?? "")
     }
 }

@@ -9,7 +9,7 @@
 import Alamofire
 
 enum Router: URLRequestConvertible {
-    case search
+    case search(query: String, page: String)
     
     var httpMethod: HTTPMethod {
         switch self {
@@ -38,10 +38,10 @@ enum Router: URLRequestConvertible {
         var parameters = [String: String]()
         
         switch self {
-        case .search:
-            parameters.updateValue(apiKey, forKey: "api_key")
-            parameters.updateValue("a", forKey: "query")
-            parameters.updateValue("1", forKey: "page")
+        case let .search(query, page):
+            parameters.updateValue(apiKey, forKey: Constants.api.apiKey)
+            parameters.updateValue(query, forKey: Constants.api.query)
+            parameters.updateValue(page, forKey: Constants.api.page)
             
             request = URLRequest(url: baseUrl.appendingPathComponent(path))
             request = try URLEncoding.default.encode(request, with: parameters)

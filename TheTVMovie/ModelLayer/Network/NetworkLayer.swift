@@ -16,7 +16,7 @@ enum NetworkError: Error {
 typealias NetworkResult = (Data?, Error?) -> Void
 
 protocol INetworkLayer {
-    func search(completion: @escaping NetworkResult)
+    func search(query: String, page: String, completion: @escaping NetworkResult)
 }
 
 final class NetworkLayer: INetworkLayer {
@@ -46,8 +46,8 @@ extension NetworkLayer {
     
     /// <#Description#>
     /// - Parameter completion: <#completion description#>
-    func search(completion: @escaping NetworkResult) {
-        netRequest(Router.search) { (jsonData, error) in
+    func search(query: String, page: String, completion: @escaping NetworkResult) {
+        netRequest(Router.search(query: query, page: page)) { (jsonData, error) in
            completion(jsonData, error)
         }
     }
