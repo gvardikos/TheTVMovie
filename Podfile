@@ -8,6 +8,9 @@ target 'TheTVMovie' do
   # Pods for TheTVMovie
 
   pod 'SwiftLint'
+  
+  pod 'SteviaLayout' , '~> 4.5.0'
+
   pod 'Alamofire', '~> 5.0.0-rc.3'
   pod 'ObjectMapper', '~> 3.4'
   

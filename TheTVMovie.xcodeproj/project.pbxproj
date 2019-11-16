@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,10 +11,10 @@
 		ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387723800E2F00045741 /* AppDelegate.swift */; };
 		ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387923800E2F00045741 /* SceneDelegate.swift */; };
 		ECC8387C23800E2F00045741 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387B23800E2F00045741 /* ViewController.swift */; };
-		ECC8387F23800E2F00045741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC8387D23800E2F00045741 /* Main.storyboard */; };
 		ECC8388123800E3000045741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC8388023800E3000045741 /* Assets.xcassets */; };
 		ECC8388423800E3000045741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC8388223800E3000045741 /* LaunchScreen.storyboard */; };
 		ECC8388F23800E3000045741 /* TheTVMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8388E23800E3000045741 /* TheTVMovieTests.swift */; };
+		ECC8389A2380173300045741 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC838992380173300045741 /* SearchVC.swift */; };
 		F4C1D6BD6976D271C77227D6 /* Pods_TheTVMovieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4222D08322ED02F068C2B69 /* Pods_TheTVMovieTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,13 +39,13 @@
 		ECC8387723800E2F00045741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC8387923800E2F00045741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ECC8387B23800E2F00045741 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ECC8387E23800E2F00045741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECC8388023800E3000045741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECC8388323800E3000045741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECC8388523800E3000045741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC8388A23800E3000045741 /* TheTVMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheTVMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC8388E23800E3000045741 /* TheTVMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheTVMovieTests.swift; sourceTree = "<group>"; };
 		ECC8389023800E3000045741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECC838992380173300045741 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,6 @@
 				DE9716B46D94F9C63B798EE8 /* Pods-TheTVMovieTests.debug.xcconfig */,
 				32C17C60B7709530C71EC5A5 /* Pods-TheTVMovieTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -115,10 +114,10 @@
 				ECC8387723800E2F00045741 /* AppDelegate.swift */,
 				ECC8387923800E2F00045741 /* SceneDelegate.swift */,
 				ECC8387B23800E2F00045741 /* ViewController.swift */,
-				ECC8387D23800E2F00045741 /* Main.storyboard */,
 				ECC8388023800E3000045741 /* Assets.xcassets */,
 				ECC8388223800E3000045741 /* LaunchScreen.storyboard */,
 				ECC8388523800E3000045741 /* Info.plist */,
+				ECC838992380173300045741 /* SearchVC.swift */,
 			);
 			path = TheTVMovie;
 			sourceTree = "<group>";
@@ -218,7 +217,6 @@
 			files = (
 				ECC8388423800E3000045741 /* LaunchScreen.storyboard in Resources */,
 				ECC8388123800E3000045741 /* Assets.xcassets in Resources */,
-				ECC8387F23800E2F00045741 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC8389A2380173300045741 /* SearchVC.swift in Sources */,
 				ECC8387C23800E2F00045741 /* ViewController.swift in Sources */,
 				ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */,
 				ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */,
@@ -325,14 +324,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ECC8387D23800E2F00045741 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECC8387E23800E2F00045741 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ECC8388223800E3000045741 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
