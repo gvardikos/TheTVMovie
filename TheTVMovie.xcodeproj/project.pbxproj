@@ -14,6 +14,9 @@
 		ECAAA363238035D2002085E2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA362238035D2002085E2 /* BaseView.swift */; };
 		ECAAA365238039E4002085E2 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA364238039E4002085E2 /* SearchTVCell.swift */; };
 		ECAAA36723803A08002085E2 /* BaseTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA36623803A08002085E2 /* BaseTVCell.swift */; };
+		ECAAA36D23804AA3002085E2 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA36C23804AA3002085E2 /* Configuration.swift */; };
+		ECAAA36F23804BF7002085E2 /* Development.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ECAAA36E23804BF7002085E2 /* Development.xcconfig */; };
+		ECAAA37123804BFB002085E2 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ECAAA37023804BFB002085E2 /* Production.xcconfig */; };
 		ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387723800E2F00045741 /* AppDelegate.swift */; };
 		ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC8387923800E2F00045741 /* SceneDelegate.swift */; };
 		ECC8388123800E3000045741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC8388023800E3000045741 /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		ECAAA362238035D2002085E2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		ECAAA364238039E4002085E2 /* SearchTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		ECAAA36623803A08002085E2 /* BaseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTVCell.swift; sourceTree = "<group>"; };
+		ECAAA36C23804AA3002085E2 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		ECAAA36E23804BF7002085E2 /* Development.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Development.xcconfig; path = ../Development.xcconfig; sourceTree = "<group>"; };
+		ECAAA37023804BFB002085E2 /* Production.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Production.xcconfig; path = ../Production.xcconfig; sourceTree = "<group>"; };
 		ECC8387423800E2F00045741 /* TheTVMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheTVMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC8387723800E2F00045741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC8387923800E2F00045741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		ECAAA37223804DE5002085E2 /* Flavours */ = {
+			isa = PBXGroup;
+			children = (
+				ECAAA36C23804AA3002085E2 /* Configuration.swift */,
+				ECAAA36E23804BF7002085E2 /* Development.xcconfig */,
+				ECAAA37023804BFB002085E2 /* Production.xcconfig */,
+			);
+			path = Flavours;
+			sourceTree = "<group>";
+		};
 		ECC8386B23800E2F00045741 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +161,7 @@
 		ECC8389B2380191A00045741 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				ECAAA37223804DE5002085E2 /* Flavours */,
 				ECC8387723800E2F00045741 /* AppDelegate.swift */,
 				ECC8387923800E2F00045741 /* SceneDelegate.swift */,
 				ECC8388023800E3000045741 /* Assets.xcassets */,
@@ -326,6 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECAAA36F23804BF7002085E2 /* Development.xcconfig in Resources */,
+				ECAAA37123804BFB002085E2 /* Production.xcconfig in Resources */,
 				ECC8388423800E3000045741 /* LaunchScreen.storyboard in Resources */,
 				ECC8388123800E3000045741 /* Assets.xcassets in Resources */,
 			);
@@ -414,6 +433,7 @@
 				ECAAA3612380344A002085E2 /* Log.swift in Sources */,
 				ECAAA35F2380340E002085E2 /* BaseVC.swift in Sources */,
 				ECC8389A2380173300045741 /* SearchVC.swift in Sources */,
+				ECAAA36D23804AA3002085E2 /* Configuration.swift in Sources */,
 				ECC8387823800E2F00045741 /* AppDelegate.swift in Sources */,
 				ECC838A723801E2A00045741 /* ShowDetailsVC.m in Sources */,
 				ECAAA365238039E4002085E2 /* SearchTVCell.swift in Sources */,
@@ -454,6 +474,7 @@
 /* Begin XCBuildConfiguration section */
 		ECC8389123800E3000045741 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECAAA36E23804BF7002085E2 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -514,6 +535,7 @@
 		};
 		ECC8389223800E3000045741 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECAAA37023804BFB002085E2 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
