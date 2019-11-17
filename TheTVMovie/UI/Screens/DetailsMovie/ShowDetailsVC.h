@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ShowDetailsView.h"
+#import "ShowDetailsTVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ShowDetailsVC : UIViewController
+@interface ShowDetailsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) ShowDetailsView *showDetailsView;
+@property (strong, nonatomic) ShowDetailsView *contentView;
 @property (strong, nonatomic) NSString *name;
-
 
 @end
 

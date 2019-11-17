@@ -12,6 +12,7 @@ final class SearchView: BaseView<SearchViewVM> {
     lazy var searchBar: UISearchBar = { [unowned self] in
         let searchBar = UISearchBar()
         searchBar.delegate = self
+        searchBar.placeholder = "Search for a show..."
         return searchBar
     }()
     

@@ -14,6 +14,7 @@
 		EC9F352523815BA5009C9AC1 /* SearchTVCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F352423815BA5009C9AC1 /* SearchTVCellVM.swift */; };
 		EC9F352723816BD3009C9AC1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F352623816BD3009C9AC1 /* UIImageView+Extension.swift */; };
 		EC9F352A2381966E009C9AC1 /* ShowDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F35292381966E009C9AC1 /* ShowDetailsView.m */; };
+		EC9F35302381A99A009C9AC1 /* ShowDetailsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F352F2381A99A009C9AC1 /* ShowDetailsTVCell.m */; };
 		ECAAA35D23803377002085E2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA35C23803377002085E2 /* SearchView.swift */; };
 		ECAAA35F2380340E002085E2 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA35E2380340E002085E2 /* BaseVC.swift */; };
 		ECAAA3612380344A002085E2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA3602380344A002085E2 /* Log.swift */; };
@@ -64,6 +65,8 @@
 		EC9F352623816BD3009C9AC1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		EC9F35282381966E009C9AC1 /* ShowDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowDetailsView.h; sourceTree = "<group>"; };
 		EC9F35292381966E009C9AC1 /* ShowDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsView.m; sourceTree = "<group>"; };
+		EC9F352E2381A99A009C9AC1 /* ShowDetailsTVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowDetailsTVCell.h; sourceTree = "<group>"; };
+		EC9F352F2381A99A009C9AC1 /* ShowDetailsTVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsTVCell.m; sourceTree = "<group>"; };
 		ECAAA35C23803377002085E2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ECAAA35E2380340E002085E2 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		ECAAA3602380344A002085E2 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -141,6 +144,15 @@
 				EC131B3323806EF800598F1D /* ShowDTO.swift */,
 			);
 			path = DTOs;
+			sourceTree = "<group>";
+		};
+		EC9F35312381B4E9009C9AC1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC9F352E2381A99A009C9AC1 /* ShowDetailsTVCell.h */,
+				EC9F352F2381A99A009C9AC1 /* ShowDetailsTVCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		ECAAA37223804DE5002085E2 /* Flavours */ = {
@@ -307,6 +319,7 @@
 		ECC838A923801E4600045741 /* DetailsMovie */ = {
 			isa = PBXGroup;
 			children = (
+				EC9F35312381B4E9009C9AC1 /* Cells */,
 				ECC838A523801E2A00045741 /* ShowDetailsVC.h */,
 				ECC838A623801E2A00045741 /* ShowDetailsVC.m */,
 				EC9F35282381966E009C9AC1 /* ShowDetailsView.h */,
@@ -491,6 +504,7 @@
 				ECAAA35D23803377002085E2 /* SearchView.swift in Sources */,
 				EC9F352723816BD3009C9AC1 /* UIImageView+Extension.swift in Sources */,
 				EC131B3423806EF800598F1D /* ShowDTO.swift in Sources */,
+				EC9F35302381A99A009C9AC1 /* ShowDetailsTVCell.m in Sources */,
 				ECAAA3612380344A002085E2 /* Log.swift in Sources */,
 				EC9F352523815BA5009C9AC1 /* SearchTVCellVM.swift in Sources */,
 				ECAAA35F2380340E002085E2 /* BaseVC.swift in Sources */,

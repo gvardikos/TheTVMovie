@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Combine
 
 public enum SearchViewVMState {
     case loading
