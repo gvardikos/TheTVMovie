@@ -29,20 +29,9 @@ extension UIImageView {
                 case .success( _): break
                 case .failure(let error):
                     self.image = defaultImage
-                    print("Job failed: \(error.localizedDescription)")
+                    Log.shared.log("Job failed: \(error.localizedDescription)")
                 }
             }
-            
-            //            kf.setImage(with: resource,
-            //                        placeholder: nil,
-            //                        options: [.transition(ImageTransition.fade(1))],
-            //                        progressBlock: nil,
-            //                        completionHandler: { _, error, _, _ in
-            //                            if error != nil {
-            //                                self.kf.setImage(with: nil)
-            //                                self.image = defaultImage
-            //                            }
-            //            })
         } else {
             image = defaultImage
         }
