@@ -8,23 +8,10 @@
 
 import Stevia
 
-/// Controller LifeCycle Extension
-extension SearchVC {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindings()
-    }
-    
-    public override func loadView() { view = contentView }
-}
+private let tableCellHeight: CGFloat = 160
 
 final class SearchVC: BaseViewController {
-    fileprivate lazy var contentView: SearchView = { [unowned self] in
-        let view = SearchView(vm: searchViewModel, frame: .zero)
-        view.delegate = self
-        return view
-    }()
-    
+    private lazy var contentView = SearchView(vm: searchViewModel, frame: .zero)
     private var searchViewModel: SearchViewVM
     
     init(searchViewModel: SearchViewVM = SearchViewVM()) {
@@ -34,6 +21,22 @@ final class SearchVC: BaseViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+        bindings()
+    }
+    
+    public override func loadView() { view = contentView }
+    
+    fileprivate func setupTableView() {
+        contentView.searchTableView.register(
+            SearchTVCell.self,
+            forCellReuseIdentifier: SearchTVCell.reuseIdentifier)
+        contentView.searchTableView.dataSource = self
+        contentView.searchTableView.delegate = self
     }
     
     fileprivate func bindings() {
@@ -49,20 +52,35 @@ final class SearchVC: BaseViewController {
             }
         }
     }
+}
+
+extension SearchVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchViewModel.shows.value.count
+    }
     
-    fileprivate func showError(_ error: Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default) { [unowned self] _ in
-            self.dismiss(animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell =
+            contentView.searchTableView.dequeueReusableCell(
+                withIdentifier: SearchTVCell.reuseIdentifier,
+                for: indexPath) as? SearchTVCell
+            else
+        {
+            return UITableViewCell()
         }
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableCellHeight
     }
 }
 
-extension SearchVC: SearchViewDelegate {
-    func cellPressed(indexPath: IndexPath) {
+extension SearchVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let showDetailsVC = ShowDetailsVC()
         show(showDetailsVC, sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

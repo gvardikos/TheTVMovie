@@ -14,4 +14,9 @@ public struct Constants {
         public static let query = "query"
         public static let page = "page"
     }
+    
+    public struct alert {
+        public static let errorTitle = "Error"
+        public static let okAction = "OK"
+    }
 }

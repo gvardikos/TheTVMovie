@@ -8,15 +8,22 @@
 
 import Stevia
 
-extension BaseViewController {
+public class BaseViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         Log.shared.log(String(describing: self))
     }
-}
-
-public class BaseViewController: UIViewController {
+    
     deinit {
         Log.shared.log(String(describing: self))
+    }
+    
+    func showError(_ error: Error) {
+        let alertController = UIAlertController(title: Constants.alert.errorTitle, message: error.localizedDescription, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: Constants.alert.okAction, style: .default) { [unowned self] _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

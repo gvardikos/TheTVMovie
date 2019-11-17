@@ -8,12 +8,6 @@
 
 import Stevia
 
-private let tableCellHeight: CGFloat = 160
-
-protocol SearchViewDelegate: class {
-    func cellPressed(indexPath: IndexPath)
-}
-
 final class SearchView: BaseView<SearchViewVM> {
     lazy var searchBar: UISearchBar = { [unowned self] in
         let searchBar = UISearchBar()
@@ -23,15 +17,10 @@ final class SearchView: BaseView<SearchViewVM> {
     
     lazy var searchTableView: UITableView = { [unowned self] in
         let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        tableView.register(SearchTVCell.self, forCellReuseIdentifier: SearchTVCell.reuseIdentifier)
         return tableView
     }()
-    
-    weak var delegate: SearchViewDelegate?
-    
+        
     override func initialize() {
         setupUI()
     }
@@ -49,36 +38,6 @@ final class SearchView: BaseView<SearchViewVM> {
         searchTableView.Left == searchBar.Left
         searchTableView.Right == searchBar.Right
         searchTableView.Bottom == safeAreaLayoutGuide.Bottom
-    }
-}
-
-extension SearchView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.shows.value.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =
-            searchTableView.dequeueReusableCell(
-                withIdentifier: SearchTVCell.reuseIdentifier,
-                for: indexPath) as? SearchTVCell
-            else
-        {
-            return UITableViewCell()
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableCellHeight
-    }
-}
-
-extension SearchView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.cellPressed(indexPath: indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
