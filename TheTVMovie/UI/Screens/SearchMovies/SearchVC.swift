@@ -27,6 +27,7 @@ final class SearchVC: BaseViewController {
         super.viewDidLoad()
         setupTableView()
         bindings()
+        setupTitle()
     }
     
     public override func loadView() { view = contentView }
@@ -49,6 +50,10 @@ final class SearchVC: BaseViewController {
             case .error(let error): self.showError(error)
             }
         }
+    }
+    
+    private func setupTitle() {
+        title = "Search for a show"
     }
 }
 
