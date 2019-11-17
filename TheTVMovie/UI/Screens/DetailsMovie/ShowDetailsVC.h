@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShowDetailsView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ShowDetailsVC : UIViewController
+
+@property (strong, nonatomic) ShowDetailsView *showDetailsView;
+@property (strong, nonatomic) NSString *name;
+
 
 @end
 

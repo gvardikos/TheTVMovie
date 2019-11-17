@@ -13,6 +13,7 @@
 		EC131B3623807C0D00598F1D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC131B3523807C0D00598F1D /* UIView+Extension.swift */; };
 		EC9F352523815BA5009C9AC1 /* SearchTVCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F352423815BA5009C9AC1 /* SearchTVCellVM.swift */; };
 		EC9F352723816BD3009C9AC1 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F352623816BD3009C9AC1 /* UIImageView+Extension.swift */; };
+		EC9F352A2381966E009C9AC1 /* ShowDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9F35292381966E009C9AC1 /* ShowDetailsView.m */; };
 		ECAAA35D23803377002085E2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA35C23803377002085E2 /* SearchView.swift */; };
 		ECAAA35F2380340E002085E2 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA35E2380340E002085E2 /* BaseVC.swift */; };
 		ECAAA3612380344A002085E2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAAA3602380344A002085E2 /* Log.swift */; };
@@ -61,6 +62,8 @@
 		EC131B3523807C0D00598F1D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EC9F352423815BA5009C9AC1 /* SearchTVCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTVCellVM.swift; sourceTree = "<group>"; };
 		EC9F352623816BD3009C9AC1 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		EC9F35282381966E009C9AC1 /* ShowDetailsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowDetailsView.h; sourceTree = "<group>"; };
+		EC9F35292381966E009C9AC1 /* ShowDetailsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsView.m; sourceTree = "<group>"; };
 		ECAAA35C23803377002085E2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ECAAA35E2380340E002085E2 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		ECAAA3602380344A002085E2 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 			children = (
 				ECC838A523801E2A00045741 /* ShowDetailsVC.h */,
 				ECC838A623801E2A00045741 /* ShowDetailsVC.m */,
+				EC9F35282381966E009C9AC1 /* ShowDetailsView.h */,
+				EC9F35292381966E009C9AC1 /* ShowDetailsView.m */,
 			);
 			path = DetailsMovie;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				EC131B312380694400598F1D /* Constants.swift in Sources */,
 				ECC8387A23800E2F00045741 /* SceneDelegate.swift in Sources */,
 				ECAAA363238035D2002085E2 /* BaseView.swift in Sources */,
+				EC9F352A2381966E009C9AC1 /* ShowDetailsView.m in Sources */,
 				ECAAA37A23804E5E002085E2 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
