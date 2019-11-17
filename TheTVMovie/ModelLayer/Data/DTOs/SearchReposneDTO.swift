@@ -25,7 +25,6 @@ public struct SearchReposne: Mappable {
         totalPages <- map["total_pages"]
         results <- map["results"]
     }
-    
 }
 
 public struct Results: Mappable {
@@ -50,6 +49,3 @@ public struct Results: Mappable {
     }
 }
 
-public struct ShowDTO {
-    
-}

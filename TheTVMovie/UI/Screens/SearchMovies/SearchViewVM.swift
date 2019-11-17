@@ -31,8 +31,11 @@ final public class SearchViewVM {
     /// - Parameter query: <#query description#>
     public func search(query: String) {
         state.value = .loading
-        repository.search(query: query, page: "1") { [weak self] (searchResult) in
-            guard let shows = searchResult.results else { return }
+        repository.search(query: query, page: "1") { [weak self] (searchResult, error) in
+            guard let shows = searchResult?.results, error == nil else {
+                self?.state.value = .error(error!)
+                return
+            }
             
             self?.searchTVCellViewModels = shows.map { SearchTVCellVM(show: $0) }
             self?.state.value = .finishedLoading

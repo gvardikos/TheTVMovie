@@ -20,6 +20,10 @@
     
     NSLog(@"%@", _name);
     [self setupTableView];
+    
+    [Repository.shared fetchTVShowDetailsWithId:@"2691" result:^(MovieDetailsResponse * response, NSError * error) {
+        NSLog(@"%@", response.genre[0].name);
+    }];
 }
 
 - (void) loadView {

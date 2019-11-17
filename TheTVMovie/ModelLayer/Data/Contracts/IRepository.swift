@@ -9,5 +9,6 @@
 import Foundation
 
 protocol IRepository {
-    func search(query: String, page: String, completion: @escaping (SearchReposne) -> Void)
+    func search(query: String, page: String, result: @escaping SearchCallback)
+    func fetchTVShowDetails(id: String, result: @escaping MovieDetailsCallback)
 }

@@ -10,10 +10,13 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     case search(query: String, page: String)
+    case fetchTVShowDetails(id: String)
     
     var httpMethod: HTTPMethod {
         switch self {
         case .search:
+            return .get
+        case .fetchTVShowDetails:
             return .get
         }
     }
@@ -22,6 +25,8 @@ enum Router: URLRequestConvertible {
         switch self {
         case .search:
             return "/search/multi"
+        case .fetchTVShowDetails:
+            return "/tv/"
         }
     }
     
@@ -44,6 +49,12 @@ enum Router: URLRequestConvertible {
             parameters.updateValue(page, forKey: Constants.api.page)
             
             request = URLRequest(url: baseUrl.appendingPathComponent(path))
+            request = try URLEncoding.default.encode(request, with: parameters)
+            
+        case let .fetchTVShowDetails(id):
+            parameters.updateValue(apiKey, forKey: Constants.api.apiKey)
+            
+            request = URLRequest(url: baseUrl.appendingPathComponent(path + id))
             request = try URLEncoding.default.encode(request, with: parameters)
         }
 
