@@ -12,13 +12,10 @@ import Stevia
 extension SearchVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bindings()
     }
     
-    public override func loadView() {
-        view = contentView
-    }
+    public override func loadView() { view = contentView }
 }
 
 final class SearchVC: BaseViewController {
