@@ -66,4 +66,4 @@ fastlane/screenshots
 fastlane/test_output
 
 #Configuration files
-*.xcconfig
+#*.xcconfig
