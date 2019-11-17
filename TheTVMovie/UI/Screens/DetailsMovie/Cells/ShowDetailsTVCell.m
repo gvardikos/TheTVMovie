@@ -7,11 +7,20 @@
 //
 
 #import "ShowDetailsTVCell.h"
+#import "TheTVMovie-Swift.h"
+
+@interface ShowDetailsTVCell ()
+@property TVShowDetailsResponse *tvShowDTO;
+@end
 
 @implementation ShowDetailsTVCell
 
 static NSString * _reuseIdentifier = @"ShowDetailsTVCell.reuseIdentifier";
 + (NSString *) reuseIdentifier { return _reuseIdentifier; }
+
+- (void) setTVShowDto:(NSObject *) dto {
+    self.tvShowDTO = dto;
+}
 
 - (instancetype) initWithStyle: (UITableViewCellStyle)style
                reuseIdentifier: (NSString *)reuseIdentifier {
@@ -28,9 +37,24 @@ static NSString * _reuseIdentifier = @"ShowDetailsTVCell.reuseIdentifier";
     // Configure the view for the selected state
 }
 
+- (void) configure {
+    if (_tvShowDTO.backdropPath) {
+    [_backDropImage loadImageWithPath: [@"https://image.tmdb.org/t/p/w500/" stringByAppendingString: _tvShowDTO.backdropPath]
+                         defaultImage:nil
+                             cacheKey:nil];
+    }
+    _showTitle.text = _tvShowDTO.showTitle;
+    _showSummary.text = _tvShowDTO.showSummary;
+    
+    if (_tvShowDTO.genre.count > 0) {
+        _genre.text = _tvShowDTO.genre[0].name;
+    }
+}
+
 - (void) setupUI {
     _backDropImage = [[UIImageView alloc] initWithFrame: CGRectZero];
-    _backDropImage.backgroundColor = [UIColor greenColor];
+    _backDropImage.backgroundColor = [UIColor whiteColor];
+    _backDropImage.contentMode = UIViewContentModeScaleAspectFit;
     
     _showTitle = [[UILabel alloc] initWithFrame: CGRectZero];
     _showTitle.text = @"title";
@@ -44,7 +68,7 @@ static NSString * _reuseIdentifier = @"ShowDetailsTVCell.reuseIdentifier";
     _showSummary.minimumScaleFactor = 0.5;
     
     _genre = [[UILabel alloc] initWithFrame: CGRectZero];
-    _genre.text = @"Comedy";
+    _genre.text = @"NA";
     _genre.textAlignment = NSTextAlignmentCenter;
     _genre.minimumScaleFactor = 0.5;
     
@@ -62,7 +86,7 @@ static NSString * _reuseIdentifier = @"ShowDetailsTVCell.reuseIdentifier";
                                              multiplier: 1.0].active = YES;
     [_backDropImage.heightAnchor constraintEqualToConstant:150].active = YES;
     [_backDropImage.topAnchor constraintEqualToAnchor: self.topAnchor
-                                             constant: 0].active = YES;
+                                             constant: 12].active = YES;
     [_backDropImage.centerXAnchor constraintEqualToAnchor: self.centerXAnchor
                                                  constant: 0.0].active = YES;
     

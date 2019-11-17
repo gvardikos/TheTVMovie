@@ -34,6 +34,7 @@ public struct Results: Mappable {
     var firstAirDate: String?
     var releaseDate: String?
     var posterPath: String?
+    var id: Int?
     
     public init?(map: Map) {
         
@@ -46,6 +47,7 @@ public struct Results: Mappable {
         firstAirDate <- map["first_air_date"]
         releaseDate <- map["release_date"]
         posterPath <- map["poster_path"]
+        id <- map["id"]
     }
 }
 

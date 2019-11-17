@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ShowDetailsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) ShowDetailsView *contentView;
-@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *showId;
 
 @end
 

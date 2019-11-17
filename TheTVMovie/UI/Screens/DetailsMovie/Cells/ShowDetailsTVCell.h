@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class) NSString *reuseIdentifier;
 
+- (void) setTVShowDto: (NSObject *) dto;
+- (void) configure;
 @end
 
 NS_ASSUME_NONNULL_END

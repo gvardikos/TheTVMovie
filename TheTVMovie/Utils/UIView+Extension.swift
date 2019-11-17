@@ -9,20 +9,20 @@
 import UIKit
 
 extension UIView {
-    func showBlurLoader() {
+    @objc func showBlurLoader() {
         let blurLoader = BlurLoader(frame: frame)
         addSubview(blurLoader)
     }
 
-    func removeBluerLoader() {
+    @objc func removeBluerLoader() {
         if let blurLoader = subviews.first(where: { $0 is BlurLoader }) {
             blurLoader.removeFromSuperview()
         }
     }
 }
 
-class BlurLoader: UIView {
-    var blurEffectView: UIVisualEffectView?
+@objc public class BlurLoader: UIView {
+    @objc var blurEffectView: UIVisualEffectView?
 
     override init(frame: CGRect) {
         let blurEffect = UIBlurEffect(style: .light)

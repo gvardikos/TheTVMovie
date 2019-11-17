@@ -84,7 +84,8 @@ extension SearchVC: UITableViewDataSource {
 extension SearchVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let showDetailsVC = ShowDetailsVC()
-        showDetailsVC.name = "yeaaaaaah"
+        showDetailsVC.showId = searchViewModel.searchTVCellViewModels[indexPath.row].id
+        
         show(showDetailsVC, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }

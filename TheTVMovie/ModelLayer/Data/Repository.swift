@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 public typealias SearchCallback = (SearchReposne?, Error?) -> Void
-public typealias MovieDetailsCallback = (MovieDetailsResponse?, Error?) -> Void
+public typealias MovieDetailsCallback = (TVShowDetailsResponse?, Error?) -> Void
 
 @objc final public class Repository: NSObject, IRepository {
     private static var privateShared: Repository?

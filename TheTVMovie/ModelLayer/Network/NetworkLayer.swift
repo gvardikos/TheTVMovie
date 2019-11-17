@@ -19,7 +19,7 @@ typealias NetworkResult<T: Mappable> = (T?, Error?) -> Void
 
 protocol INetworkLayer {
     func search(query: String, page: String, completion: @escaping NetworkResult<SearchReposne>)
-    func fetchTVShowDetails(id: String, completion: @escaping NetworkResult<MovieDetailsResponse>)
+    func fetchTVShowDetails(id: String, completion: @escaping NetworkResult<TVShowDetailsResponse>)
 }
 
 final class NetworkLayer: INetworkLayer {
@@ -63,7 +63,7 @@ extension NetworkLayer {
     /// - Parameters:
     ///   - id: id of tv show
     ///   - completion: (T?, Error?) -> Void
-    func fetchTVShowDetails(id: String, completion: @escaping NetworkResult<MovieDetailsResponse>) {
+    func fetchTVShowDetails(id: String, completion: @escaping NetworkResult<TVShowDetailsResponse>) {
         netRequest(Router.fetchTVShowDetails(id: id)) { (responseObj, error) in
            completion(responseObj, error)
         }

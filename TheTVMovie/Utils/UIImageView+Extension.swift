@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func loadImage(path: String,
+    @objc func loadImage(path: String,
                    defaultImage: UIImage? = nil,
                    cacheKey: String? = nil) {
         if let url = URL(string: path) {

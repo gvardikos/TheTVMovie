@@ -13,15 +13,17 @@ public final class SearchTVCellVM {
     public var imagePath = ""
     public var releaseDate = ""
     public var rating = ""
+    public var id = ""
     
     private var result: Results
     
     init(show: Results) {
         self.result = show
-     
-        self.imagePath = API.assetsURL.absoluteString + (show.posterPath ?? "") 
+        
+        self.imagePath = API.assetsURL.absoluteString + (show.posterPath ?? "")
         self.name = show.originalName ?? show.originalTitle ?? "NA"
         self.releaseDate = show.releaseDate ?? show.firstAirDate ?? "NA"
         self.rating = String(show.voteAverage ?? 0)
+        self.id = String(show.id ?? 0)
     }
 }

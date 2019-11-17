@@ -10,7 +10,7 @@
 #import "TheTVMovie-Swift.h"
 
 @interface ShowDetailsVC ()
-
+@property TVShowDetailsResponse *tvShowDTO;
 @end
 
 @implementation ShowDetailsVC
@@ -18,11 +18,20 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@", _name);
     [self setupTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.contentView showBlurLoader];
     
-    [Repository.shared fetchTVShowDetailsWithId:@"2691" result:^(MovieDetailsResponse * response, NSError * error) {
-        NSLog(@"%@", response.genre[0].name);
+    [Repository.shared fetchTVShowDetailsWithId: _showId
+                                         result:^(TVShowDetailsResponse * response, NSError * error) {
+        if (response) {
+            self.tvShowDTO = response;
+            [self.contentView.detailsTableView reloadData];
+            [self.contentView removeBluerLoader];
+        }
     }];
 }
 
@@ -47,6 +56,11 @@
     if (cell == nil) {
         cell = [[ShowDetailsTVCell alloc] initWithStyle: UITableViewCellStyleDefault
                                         reuseIdentifier: @"ShowDetailsTVCell.reuseIdentifier"];
+    }
+    
+    if (_tvShowDTO) {
+        [cell setTVShowDto: _tvShowDTO];
+        [cell configure];
     }
     
     return cell;

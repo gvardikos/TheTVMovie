@@ -30,7 +30,10 @@ enum Configuration {
     }
 }
 
-enum API {
+@objc enum API: Int, RawRepresentable{
+    case debug
+    typealias RawValue = Int
+    
     // swiftlint:disable force_try
     // Disable the Lint: I think this is a straitfoward case. Maybe review it later
     static var baseURL: URL {

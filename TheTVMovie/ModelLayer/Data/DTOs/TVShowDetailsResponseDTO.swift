@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-@objc public class MovieDetailsResponse: NSObject, Mappable {
+@objc public class TVShowDetailsResponse: NSObject, Mappable {
     @objc var backdropPath: String?
     @objc var showTitle: String?
     @objc var showSummary: String?
