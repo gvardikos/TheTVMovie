@@ -17,13 +17,14 @@ public enum SearchViewVMState {
 
 final public class SearchViewVM {
     public var searchText: String = ""
-    public var shows = Observable<[Results]>([])
+    
+    private(set) var searchTVCellViewModels: [SearchTVCellVM] = []
     
     public var state = Observable<SearchViewVMState>(.finishedLoading)
     
     var repository: IRepository
     
-    init() {
+    init(repository: IRepository = Repository.shared) {
         self.repository = Repository.shared
     }
     
@@ -31,14 +32,11 @@ final public class SearchViewVM {
     /// - Parameter query: <#query description#>
     public func search(query: String) {
         state.value = .loading
-        repository.search(query: query, page: "1") { (searchResult) in
-            Log.shared.log(searchResult)
+        repository.search(query: query, page: "1") { [weak self] (searchResult) in
+            guard let shows = searchResult.results else { return }
             
-            searchResult.results?.forEach({ (result) in
-                self.shows.value.append(result)
-            })
-            
-            self.state.value = .finishedLoading
+            self?.searchTVCellViewModels = shows.map { SearchTVCellVM(show: $0) }
+            self?.state.value = .finishedLoading
         }
     }
 }

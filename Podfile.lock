@@ -3,12 +3,14 @@ PODS:
   - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - Kingfisher (5.7.1)
   - ObjectMapper (3.5.1)
   - SteviaLayout (4.5.0)
   - SwiftLint (0.37.0)
 
 DEPENDENCIES:
   - AlamofireObjectMapper (~> 5.2)
+  - Kingfisher (~> 5.7.1)
   - ObjectMapper (~> 3.4)
   - SteviaLayout (~> 4.5.0)
   - SwiftLint
@@ -17,6 +19,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireObjectMapper
+    - Kingfisher
     - ObjectMapper
     - SteviaLayout
     - SwiftLint
@@ -24,10 +27,11 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   SteviaLayout: aa64a62810544348c9e328a6521cb9160fa82ec6
   SwiftLint: c078a14d7d7ade75e5507795d185e3da41d844d2
 
-PODFILE CHECKSUM: 7187e6f1e6bb1a2a687aa484376fa6fda678d3ed
+PODFILE CHECKSUM: 1f4b23fbf1d851e1fc52951335b3ede1612eb71b
 
 COCOAPODS: 1.8.3

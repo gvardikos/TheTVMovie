@@ -34,6 +34,7 @@ public struct Results: Mappable {
     var voteAverage: Double?
     var firstAirDate: String?
     var releaseDate: String?
+    var posterPath: String?
     
     public init?(map: Map) {
         
@@ -45,6 +46,7 @@ public struct Results: Mappable {
         voteAverage <- map["vote_average"]
         firstAirDate <- map["first_air_date"]
         releaseDate <- map["release_date"]
+        posterPath <- map["poster_path"]
     }
 }
 

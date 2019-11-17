@@ -8,7 +8,7 @@
 
 import Stevia
 
-private let tableCellHeight: CGFloat = 160
+private let tableCellHeight: CGFloat = 140
 
 final class SearchVC: BaseViewController {
     private lazy var contentView = SearchView(vm: searchViewModel, frame: .zero)
@@ -31,7 +31,7 @@ final class SearchVC: BaseViewController {
     
     public override func loadView() { view = contentView }
     
-    fileprivate func setupTableView() {
+    private func setupTableView() {
         contentView.searchTableView.register(
             SearchTVCell.self,
             forCellReuseIdentifier: SearchTVCell.reuseIdentifier)
@@ -39,15 +39,13 @@ final class SearchVC: BaseViewController {
         contentView.searchTableView.delegate = self
     }
     
-    fileprivate func bindings() {
-        searchViewModel.shows.bind { [unowned self] (_) in
-            self.contentView.searchTableView.reloadData()
-        }
-        
+    private func bindings() {
         searchViewModel.state.bind { [unowned self] (state) in
             switch state {
             case .loading: self.contentView.showBlurLoader()
-            case .finishedLoading: self.contentView.removeBluerLoader()
+            case .finishedLoading:
+                self.contentView.removeBluerLoader()
+                self.contentView.searchTableView.reloadData()
             case .error(let error): self.showError(error)
             }
         }
@@ -56,20 +54,21 @@ final class SearchVC: BaseViewController {
 
 extension SearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchViewModel.shows.value.count
+        return searchViewModel.searchTVCellViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =
-            contentView.searchTableView.dequeueReusableCell(
-                withIdentifier: SearchTVCell.reuseIdentifier,
-                for: indexPath) as? SearchTVCell
-            else
-        {
-            return UITableViewCell()
+        let dequeuedCell = contentView.searchTableView.dequeueReusableCell(
+                                withIdentifier: SearchTVCell.reuseIdentifier,
+                                for: indexPath
+                            )
+        
+        guard let searchCell = dequeuedCell as? SearchTVCell else {
+            fatalError("Could not dequeue a cell")
         }
         
-        return cell
+        searchCell.viewModel = searchViewModel.searchTVCellViewModels[indexPath.row]
+        return searchCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

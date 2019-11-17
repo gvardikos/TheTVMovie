@@ -38,6 +38,11 @@ enum API {
         return URL(string: "https://" + base)!
     }
     
+    static var assetsURL: URL {
+        let base: String = try! Configuration.value(for: "API_ASSETS_URL")
+        return URL(string: "https://" + base)!
+    }
+    
     static var key: String {
         return try! Configuration.value(for: "API_KEY")
     }

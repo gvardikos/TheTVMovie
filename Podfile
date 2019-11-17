@@ -11,10 +11,11 @@ target 'TheTVMovie' do
   
   pod 'SteviaLayout' , '~> 4.5.0'
 
-#  pod 'Alamofire', '~> 4.8.1'
   pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'ObjectMapper', '~> 3.4'
   
+  pod 'Kingfisher', '~> 5.7.1'
+
   target 'TheTVMovieTests' do
     inherit! :search_paths
     # Pods for testing
